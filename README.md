@@ -1,2 +1,3 @@
 # Intern_preparation
-This repo contains my intern preparation such solved problems in DSA, DBMS, OS etc...
+Data structures
+ 1.Array
