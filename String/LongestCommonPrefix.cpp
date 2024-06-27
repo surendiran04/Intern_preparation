@@ -1,3 +1,10 @@
+Find the longest common prefix string amongst an array of strings.
+If there is no common prefix, return an empty string "".
+
+Sample Input:
+ Input: flower flow flight
+ Output; fl
+
 #include <iostream>
 #include <vector>
 #include <string>
