@@ -9,7 +9,7 @@
   
 class Solution {   //return the k number of elements which has the max frequency
 public:
-    vector<int> topKFrequent(vector<int>& nums, int k) { // T(n) = O(n + k)
+    vector<int> topKFrequent(vector<int>& nums, int k) { // T(n) = O(n + k)  Bucket dort
         unordered_map<int,int> map;
         vector<int> res;
         for(int num:nums){   //found the count every elements
