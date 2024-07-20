@@ -10,7 +10,7 @@
 // Input: nums = [1,1,1,3,3,4,3,2,4,2]
 // Output: true
 
-class Solution {
+class Solution {  // we can also use hash map if the map[num]>0 then return true else map[num]++
 public:
     bool containsDuplicate(vector<int>& nums) {
         sort(nums.begin(),nums.end());
