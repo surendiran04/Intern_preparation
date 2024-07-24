@@ -1,6 +1,6 @@
 class Solution {
 public:
-    ListNode *detectCycle(ListNode *head) {
+    ListNode *detectCycle(ListNode *head) { //also use hashmap ans hash the entire List if the listNode if the List exist in the map then then we an detect the cycle
         if(head==nullptr || head->next==nullptr){
             return NULL;
         }
