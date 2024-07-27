@@ -40,3 +40,15 @@ while(!stk.isEmpty()){
             stk1.push(stk2.pop());
         }
     }
+
+std::stack<int> tmpStack; //reduce one stack by pusing again into the original stack
+    while (!input.empty()) {
+        int tmp = input.top();
+        input.pop();
+        while (!tmpStack.empty() && tmpStack.top() < tmp) {
+            input.push(tmpStack.top());
+            tmpStack.pop();
+        }
+        tmpStack.push(tmp);
+    }
+    return tmpStack;
