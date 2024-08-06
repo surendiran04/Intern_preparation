@@ -1,0 +1,22 @@
+km/hr to m/s conversion:
+a km/hr =		a x	(5/18) m/s.
+
+m/s to km/hr conversion:
+a m/s =		a x	(18/5) km/hr.
+
+Formulas for finding Speed, Time and Distance:
+
+Time taken by a train of length 'l' metres to pass a stationery object of length 'b' metres is the time taken by the train to cover (l + b) metres.
+
+Suppose two trains or two objects bodies are moving in the same direction at u m/s and v m/s, where u > v, then their relative speed is = (u - v) m/s.
+
+Suppose two trains or two objects bodies are moving in opposite directions at u m/s and v m/s, then their relative speed is = (u + v) m/s.
+
+If two trains of length a metres and b metres are moving in opposite directions at u m/s and v m/s, then:
+The time taken by the trains to cross each other =	(a + b)/(u + v)	sec.
+
+If two trains of length a metres and b metres are moving in the same direction at u m/s and v m/s, then:
+The time taken by the faster train to cross the slower train =	(a + b)/(u - v)	sec.
+
+If two trains (or bodies) start at the same time from points A and B towards each other and after crossing they take a and b sec in reaching B and A respectively, 
+then: (A's speed) : (B's speed) = (b : a)
