@@ -1,0 +1,16 @@
+class Solution {
+public:
+    bool isBalanced(TreeNode* root) {
+        return balanceFactor(root)!=-1;
+    }
+    int balanceFactor(TreeNode* p){
+        if(p==nullptr)
+           return 0;
+        int l=balanceFactor(p->left);
+        if(l==-1) return -1;
+        int r=balanceFactor(p->right);
+        if(r==-1) return -1;
+        if(abs(l-r)>1) return -1;
+        return max(l,r)+1;  
+    }
+};
