@@ -42,3 +42,39 @@ public:
         return dp[n][m];
     }
 };
+
+#include <bits/stdc++.h>  //S(n) - O(n+m) approach
+using namespace std;
+
+// Function to find the length of the Longest Common Subsequence (LCS)
+int lcs(string s1, string s2) {
+    int n = s1.size();
+    int m = s2.size();
+
+    // Initialize two vectors to store the current and previous rows of the DP table
+    vector<int> prev(m + 1, 0), cur(m + 1, 0);
+
+    // Base case is covered as we have initialized the prev and cur vectors to 0.
+
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= m; j++) {
+            if (s1[j - 1] == s2[j - 1])
+                cur[j] = 1 + prev[j - 1]; // Characters match, increment LCS length
+            else
+                cur[j] = max(prev[j], cur[j - 1]); // Characters don't match, consider the maximum from above or left
+        }
+        prev = cur; // Update the previous row with the current row
+    }
+
+    return prev[m]; // Return the length of the Longest Common Subsequence
+}
+
+int main() {
+    string s1 = "acd";
+    string s2 = "ced";
+
+    // Call the function to find and output the length of the Longest Common Subsequence
+    cout << "The Length of Longest Common Subsequence is " << lcs(s1, s2) << endl;
+
+    return 0; // Return 0 to indicate successful program execution
+}
