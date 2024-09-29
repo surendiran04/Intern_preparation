@@ -15,6 +15,6 @@ class Solution {
         
     }
     int getnthBit(int num,int n){
-        return (num >> (n-1)) & 1;
+        return (num >> (n-1)) & 1; //right shifting x-1 bits such that the xth bit will be at the last position and compared with 1
     }
 };
