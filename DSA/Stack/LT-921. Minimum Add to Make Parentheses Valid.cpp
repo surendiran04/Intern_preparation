@@ -18,3 +18,20 @@ public:
         return st.size();
     }
 };
+class Solution {
+public:
+    int minAddToMakeValid(string s) { //O(1) space
+        int open = 0, close = 0;
+        for (auto c : s) {
+            if (c == '(') {
+                open++;
+            } else {
+                if (open > 0)
+                    open--;
+                else
+                    close++;
+            }
+        }
+        return open + close;
+    }
+};
