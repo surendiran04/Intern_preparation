@@ -4,8 +4,8 @@
 // Explanation: The maximum width ramp is achieved at (i, j) = (1, 5): nums[1] = 0 and nums[5] = 5.
 // Example 2:
 
-// Input: nums = [9,8,1,0,1,9,4,0,4,1]
-// Output: 7
+// Input: nums = [9,8,1,0,1,9,4,0,4,1]  stack - 3,2,1,0 
+// Output: 7   
 // Explanation: The maximum width ramp is achieved at (i, j) = (2, 9): nums[2] = 1 and nums[9] = 1.
 //nums=[2,2,1] output:1
 class Solution {
