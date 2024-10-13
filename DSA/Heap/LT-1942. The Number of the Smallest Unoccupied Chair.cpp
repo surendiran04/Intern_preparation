@@ -1,3 +1,5 @@
+// Input: times = [[1,4],[2,3],[4,6]], targetFriend = 1
+// Output: 1
 class Solution {
 public:
     int smallestChair(vector<vector<int>>& times, int targetFriend) { //passed 49/65 cases
@@ -12,6 +14,28 @@ public:
             }
         }
         return count;
+    }
+};
+class Solution {
+public:
+    int smallestChair(vector<vector<int>>& times, int targetFriend) { //brute force
+        int n = times.size();
+        vector<int> chairs(n, -1);
+        int tar = times[targetFriend][0];
+        sort(times.begin(), times.end());
+        for (auto it : times) {
+            int arr = it[0];
+            int dep = it[1];
+            for (int i = 0; i < n; i++) { //for every arrival again checking the from the 1st whether the previously arrived has left or not 
+                if (arr >= chairs[i]) {
+                    chairs[i] = dep;
+                    if (arr == tar) //if left means check if it equal to the target
+                        return i;
+                    break;
+                }
+            }
+        }
+        return -1;
     }
 };
 class Solution {
