@@ -1,3 +1,4 @@
+//Return true if we can sort the array , condition: Only swap 2 adjacent element if it has the same no of set bits(no of 1 bits) if not then false
 // Input: nums = [8,4,2,30,15]
 // Output: true
 // Input: nums = [3,16,8,4,2]
