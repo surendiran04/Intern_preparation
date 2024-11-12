@@ -1,3 +1,5 @@
+//Given an 2D array which contains [price,beauty] and queries array for every queries array we have to return max possible beauty if the query exist in the price 
+//store the max beauty if not then store the lesser number's maximum beauty if not lesser price exist then store 0
 class Solution {
 public:
     vector<int> maximumBeauty(vector<vector<int>>& items, vector<int>& queries) {
