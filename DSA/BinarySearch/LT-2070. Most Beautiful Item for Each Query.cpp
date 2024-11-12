@@ -16,8 +16,8 @@ public:
         }
         vector<int> result;
         for (int query : queries) {
-            auto it = upper_bound(max_beauties.begin(), max_beauties.end(), make_pair(query, INT_MAX));
-            if (it == max_beauties.begin()) {
+            auto it = upper_bound(max_beauties.begin(), max_beauties.end(), make_pair(query, INT_MAX)); //here the make_pair helps us to search in 2d pair 
+            if (it == max_beauties.begin()) {   //here it is a pair so the upper bound so no element with the same price will have  INT_max as beauty so it return index+1
                 result.push_back(0);
             } else {
                 result.push_back(prev(it)->second); 
