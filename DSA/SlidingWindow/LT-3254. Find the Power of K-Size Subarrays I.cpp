@@ -1,4 +1,4 @@
-//Return the array 
+//Return the array of powers whick means if a k-sized subarray is continuous(1,2,3) then stored the max element in the subaaray else -1
 // Example 1:
 // Input: nums = [1,2,3,4,3,2,5], k = 3
 // Output: [3,4,-1,-1,-1]
