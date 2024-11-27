@@ -15,7 +15,7 @@ class Solution {
 public:
     long long countFairPairs(vector<int>& nums, int lower, int upper) {
         sort(nums.begin(), nums.end());
-        return lower_bound(nums, upper + 1) - lower_bound(nums, lower);
+        return lower_bound(nums, upper + 1) - lower_bound(nums, lower); 
     }
 
 private:
@@ -27,11 +27,9 @@ private:
             // If sum is less than value, add the size of window to result and
             // move to the next index.
             if (sum < value) {
-                result += (right - left);
-                left++;
+                result += (right - left); // Here it is pair count so not +1
+                left++;    //let's move to the next number and check validity
             } else {
-                // Otherwise, shift the right pointer backwards, until we get a
-                // valid window.
                 right--;
             }
         }
