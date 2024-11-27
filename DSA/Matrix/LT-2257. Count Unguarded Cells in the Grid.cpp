@@ -1,7 +1,6 @@
 class Solution {
 public:
-    int countUnguarded(int m, int n, vector<vector<int>>& guards,
-                       vector<vector<int>>& walls) {
+    int countUnguarded(int m, int n, vector<vector<int>>& guards,vector<vector<int>>& walls) {
         vector<vector<int>> grid(m, vector<int>(n, 0)); // Initialize grid
 
         // Mark guards as 1 and walls as 2
