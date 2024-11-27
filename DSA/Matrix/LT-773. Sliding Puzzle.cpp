@@ -8,7 +8,6 @@ public:
 
         string target = "123450";
         string startState;
-
         // Convert the 2D board into a string representation
         for (int i = 0; i < board.size(); i++) {
             for (int j = 0; j < board[0].size(); j++) {
