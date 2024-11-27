@@ -25,7 +25,6 @@ public:
                 if (result[i][j] == '.') {  // Found an empty cell; check if a
                                             // stone can fall into it
                     int nextRowWithStone = -1;
-
                     // Look for a stone directly above the empty cell
                     // `result[i][j]`
                     for (int k = i - 1; k >= 0; k--) {
