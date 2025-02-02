@@ -1,64 +1,76 @@
-
+// Given a RGB pixel color as 24bit string find the nearest color to it ,if there are colors with the minimum distance then it is Ambiguous
+// Distance formula d=sqrt(pow(r1-r2,2)+pow(g1-g2,2)+pow(b1-b2,2))
 #include <iostream>
-#include <string>
-#include <vector>
 #include <cmath>
+#include <vector>
+#include <string>
 #include <limits>
-#include <algorithm> // Make sure to include this for std::min
 
 using namespace std;
 
-int binaryToDecimal(const string& binary) {
-    return stoi(binary, 0, 2);
-}
+// Structure to store RGB values
+struct Color {
+    string name;
+    int r, g, b;
+};
 
-double colorDistance(int r1, int g1, int b1, int r2, int g2, int b2) {
+// Predefined pure colors
+vector<Color> pureColors = {
+    {"Black", 0, 0, 0},
+    {"White", 255, 255, 255},
+    {"Red", 255, 0, 0},
+    {"Green", 0, 255, 0},
+    {"Blue", 0, 0, 255}
+};
+
+// Function to calculate Euclidean distance
+double calculateDistance(int r1, int g1, int b1, int r2, int g2, int b2) {
     return sqrt(pow(r1 - r2, 2) + pow(g1 - g2, 2) + pow(b1 - b2, 2));
 }
 
-string closestColor(int r, int g, int b) {
-    struct Color {
-        int r, g, b;
-        string name;
-    };
+// Function to convert a 24-bit binary string to an integer
+int binaryToDecimal(string binary) {
+    return stoi(binary, nullptr, 2);
+}
 
-    const vector<Color> colors = {
-        {0, 0, 0, "Black"},
-        {255, 255, 255, "White"},
-        {255, 0, 0, "Red"},
-        {0, 255, 0, "Green"},
-        {0, 0, 255, "Blue"}
-    };
-
+// Function to find the closest pure color
+string findClosestColor(int r, int g, int b) {
     double minDistance = numeric_limits<double>::max();
-    string closestName = "";
+    string closestColor;
+    int count = 0;
 
-    for (const auto& color : colors) {
-        double dist = colorDistance(r, g, b, color.r, color.g, color.b);
-        if (dist < minDistance) {
-            minDistance = dist;
-            closestName = color.name;
+    for (const auto& color : pureColors) {  //Checking  for all colors
+        double distance = calculateDistance(r, g, b, color.r, color.g, color.b);
+        if (distance < minDistance) {
+            minDistance = distance;
+            closestColor = color.name;
+            count = 1;
+        } else if (distance == minDistance) {  //if there 2 colors of same min distance then it is ambiguous
+            count++;
         }
     }
 
-    return closestName; // Directly return the closest color (no ambiguity check needed)
+    return (count > 1) ? "Ambiguous" : closestColor;
 }
 
 int main() {
-    int n;
-    cin >> n;
+    string binaryString;
+    cout << "Enter a 24-bit binary string: ";
+    cin >> binaryString;
 
-    vector<string> pixels(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> pixels[i];
+    if (binaryString.length() != 24) {
+        cout << "Invalid input! The binary string must be 24 bits long.\n";
+        return 1;
     }
 
-    for (const string& pixel : pixels) {
-        int r = binaryToDecimal(pixel.substr(0, 8));
-        int g = binaryToDecimal(pixel.substr(8, 8));
-        int b = binaryToDecimal(pixel.substr(16, 8));
-        cout << closestColor(r, g, b) << endl;
-    }
+    // Extract RGB components
+    int r = binaryToDecimal(binaryString.substr(0, 8));
+    int g = binaryToDecimal(binaryString.substr(8, 8));
+    int b = binaryToDecimal(binaryString.substr(16, 8));
+
+    // Find and print the closest pure color
+    string closestColor = findClosestColor(r, g, b);
+    cout << "Closest color: " << closestColor << endl;
 
     return 0;
 }
