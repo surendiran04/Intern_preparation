@@ -1,5 +1,11 @@
 // Given a RGB pixel color as 24bit string find the nearest color to it ,if there are colors with the minimum distance then it is Ambiguous
 // Distance formula d=sqrt(pow(r1-r2,2)+pow(g1-g2,2)+pow(b1-b2,2))
+// string s= 101111010110011011100100 -> (189,102,228) -> closest to white
+//   Dist for white = 168.8 (min)
+//   Dist for blue = 216.45
+//   Dist for red = 258.34
+//   Dist for black = 313.22
+//   Dist for green = 333.33
 #include <iostream>
 #include <cmath>
 #include <vector>
