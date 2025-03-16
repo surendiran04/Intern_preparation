@@ -1,0 +1,14 @@
+Condition	              When to Use	                                          Example Problem
+h = mid	       When mid is a valid answer, but we want to minimize it	   Min Eating Speed (Koko Eating Bananas)
+h = mid - 1 	 When mid is definitely too high, so discard it	           Binary Search for Exact Value
+l = mid	       When mid is a valid answer, but we want to maximize it	   Finding Maximum Possible Value
+l = mid + 1  	 When mid is definitely too low, so discard it	           Binary Search for Exact Value
+
+while (l < h) → Finding Minimum/Maximum Threshold
+while (l <= h) → Searching for an Exact Value
+
+ceil((float)p/k) and (p + k - 1) / k
+Both methods produce the same result, but they differ in precision and performance.
+ceil((float)7 / 3)  // 7 / 3 = 2.3333 → ceil(2.3333) = 3
+(p + k - 1) / k (Integer Math) = (7 + 3 - 1) / 3 = 9 / 3 = 3
+
