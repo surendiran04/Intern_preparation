@@ -1,4 +1,6 @@
 # Intern_preparation
+<a href="https://github.com/AISHU150505/DSA_Learning">Some Imp Questions</a><br>
+
 Data structures <br>
 <a href="https://leetcode.com/discuss/career/448024/Topic-wise-problems-for-Beginners">Topic wise problems for Beginners </a><br>
 <a href="https://leetcode.com/discuss/career/448285/List-of-questions-sorted-by-common-patterns">Questions sorted on Common pattern</a><br>
