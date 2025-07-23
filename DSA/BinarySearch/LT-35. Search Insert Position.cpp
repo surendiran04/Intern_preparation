@@ -26,6 +26,6 @@ public:
                 l=mid+1;
             }
         }
-        return (target<=nums[l])?l:l+1; //edge case to check out of index also use lower_bound() - nums.begin()
+        return (target<=nums[l])?l:l+1; //edge case to check out of index      also can use lower_bound() - nums.begin()
     }
 };
