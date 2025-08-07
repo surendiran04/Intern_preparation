@@ -46,7 +46,7 @@ int maxSum(const vector<int>& stockPrice, int k) {
  
 int operationscnt(vector<int>& arr) {
     int n = stockPrice.size();
-    int total = accumulate(arr.begin(),arr.end());
+    int total = accumulate(arr.begin(),arr.end(),0);
     int avg=total/n,rem=total%n;
     int op=0;
     sort(arr.begin(),arr.end());  
