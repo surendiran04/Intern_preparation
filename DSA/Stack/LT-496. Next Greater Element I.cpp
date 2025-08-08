@@ -1,6 +1,27 @@
 //given two arrays nums1 and nums2 if the element is nums1 is found in nums2 then find the element's next greater element in nums2 else return -1
 class Solution {
 public:
+    vector<int> nextGreaterElement(vector<int>& nums1, vector<int>& nums2) { //Montonic stack approach
+        
+        int n=nums2.size();
+        unordered_map<int,int> map;
+        stack<int> st;
+        for(int i=n-1;i>=0;i--){
+            while(!st.empty() && st.top()<=nums2[i]){
+                st.pop();
+            }
+            map[nums2[i]]=st.empty()?-1:st.top();
+            st.push(nums2[i]);
+        }
+        vector<int> res;
+        for(int num:nums1){
+            res.push_back(map[num]);
+        }
+        return res;
+    }
+};
+class Solution {
+public:
     vector<int> nextGreaterElement(vector<int>& nums1, vector<int>& nums2) {
        vector<int> ans(nums1.size(), -1); 
         for (int i = 0; i < nums1.size(); i++){
