@@ -1,6 +1,27 @@
 class Solution {
 public:
     ListNode* removeNthFromEnd(ListNode* head, int n) {
+        if(!head->next){
+            return nullptr;
+        }
+        ListNode* dummy=new ListNode(0,head);
+        ListNode* t=head;
+        ListNode* p=dummy;
+        for(int i=0;i<n;i++){
+            t=t->next;
+        }
+        while(t){
+            t=t->next;
+            p=p->next;
+        }
+        p->next=p->next->next;
+        return dummy->next;
+    }
+};
+
+class Solution {
+public:
+    ListNode* removeNthFromEnd(ListNode* head, int n) {
     ListNode* fastp = head;
     ListNode* slowp = head;
 
