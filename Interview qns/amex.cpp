@@ -158,7 +158,7 @@ int main(){
     string S, T;
     if(!(cin >> S >> T)){
         S = "29162"; S="2999"
-        T = "10524";  T="1000" //ans 1
+        T = "10524";  T="1000" //ans 1     //S="321" T="123" ans:0
         cout << solution(S,T) << "\n"; // prints 2
         return 0;
     }
