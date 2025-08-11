@@ -4,6 +4,41 @@
 class Solution {
 public:
     ListNode* reverseKGroup(ListNode* head, int k) {
+        int n=0;
+        ListNode* t=head;
+        while(t){
+            n++;
+            t=t->next;
+        }
+        for(int i=0;i+k<=n;i+=k){
+            head=reverseBetween(head,i+1,i+k);
+        }
+        return head;
+    }
+    ListNode* reverseBetween(ListNode* head, int left, int right) {  //reverse LL-2 Logic
+       ListNode* dummy=new ListNode(-1);
+       ListNode* prev=dummy;
+       dummy->next=head;
+       for(int i=1;i<left;i++){
+        prev=prev->next;
+       }
+        ListNode*p=prev->next;
+        ListNode* q=nullptr;
+        ListNode* r=nullptr;
+        for(int i=0;i<=(right-left);i++){
+            r=q;
+            q=p;
+            p=p->next;
+            q->next=r;
+        }
+        prev->next->next=p;
+        prev->next=q;
+        return dummy->next;
+    }
+};
+class Solution {
+public:
+    ListNode* reverseKGroup(ListNode* head, int k) {
         if(head==nullptr || head->next==nullptr || k<2){
             return head;
         }
