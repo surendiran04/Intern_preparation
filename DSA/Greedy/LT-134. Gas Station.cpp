@@ -25,9 +25,9 @@ public:
         if(costSum>gasSum){
             return -1;
         }
-        int start=0;
+        int start=0,pre=0;
         for(int i=0;i<n;i++){
-            int pre=gas[i]-cost[i]; //check if the car has fuel to reach next station
+            pre+=gas[i]-cost[i]; //check if the car has fuel to reach next station
             if(pre<0){
                 pre=0;
                 start=i+1;
