@@ -132,6 +132,52 @@ int main() {
 
 //["Insert code","backsapce","Undo"]   output:["code","cod","code"]
 //used to stack to keep track of previous states for doing undo and operation
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    vector<string> queries = {"Insert code", "Backspace", "Undo"};
+    string text = "";
+    stack<pair<string,string>> history;  // {opType, value}
+    vector<string> result;
+
+    for (auto &q : queries) {
+        if (q.rfind("Insert",0) == 0) {
+            string word = q.substr(7); // after "Insert "
+            text += word;
+            history.push({"Insert", word});
+        }
+        else if (q == "Backspace") {
+            if (!text.empty()) {
+                char deleted = text.back();
+                text.pop_back();
+                history.push({"Backspace", string(1,deleted)});
+            }
+        }
+        else if (q == "Undo") {
+            if (!history.empty()) {
+                auto [op,val] = history.top();
+                history.pop();
+                if (op == "Insert") {
+                    text.erase(text.size() - val.size()); // remove inserted part
+                } else if (op == "Backspace") {
+                    text.push_back(val[0]); // restore deleted char
+                }
+            }
+        }
+        result.push_back(text);
+    }
+
+    // Print output
+    cout << "[";
+    for (int i=0;i<result.size();i++) {
+        cout << "\"" << result[i] << "\"";
+        if (i+1<result.size()) cout << ",";
+    }
+    cout << "]" << endl;
+
+    return 0;
+}
 
 //count the interesting strings since an interesting is considered as it should have atleast any one of the charcater repeated exactly n times
 #include <iostream>
