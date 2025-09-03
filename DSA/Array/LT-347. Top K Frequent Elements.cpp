@@ -7,6 +7,33 @@
 // Input: nums = [1], k = 1
 // Output: [1]
   
+class Solution {
+public:
+    vector<int> topKFrequent(vector<int>& nums, int k) {
+        int n=nums.size();
+        unordered_map<int,int> freq;
+        for(int i:nums){
+            freq[i]++;
+        }
+        sort(nums.begin(),nums.end(),[&](int &a,int &b){
+            if(freq[a]==freq[b]){
+                return a<b;
+            }
+            return freq[a]>freq[b];
+        });
+        vector<int> res;
+        int i=0;
+        while(k>0 && i<n){
+            if(res.empty() || (!res.empty() && res.back()!=nums[i])){  // No duplicates needs to be entered
+                res.push_back(nums[i]);
+                k--;
+            }
+            i++;
+        }
+        return res;
+    }
+};
+
 class Solution {   //return the k number of elements which has the max frequency
 public:
     vector<int> topKFrequent(vector<int>& nums, int k) { // T(n) = O(n + k)  Bucket dort
