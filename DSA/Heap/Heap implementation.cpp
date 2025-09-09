@@ -63,3 +63,32 @@ int main() {
     }
     return 0;
 }
+
+
+#include<bits/stdc++.h>
+using namespace std;
+struct compare{
+    bool operator()(pair<int,int>& a, pair<int,int>& b) {  //similiar to greater<pair<int,int>>
+        if(a.first==b.first){
+             return a.second > b.second;   // min-heap by second
+        }
+        return a.first>b.first; // min-heap by first
+       
+    }
+};
+int main() {
+    priority_queue<pair<int,int>, vector<pair<int,int>>, compare> pq;
+pq.push({2, 100});
+pq.push({1, 200});
+pq.push({2, 50});
+
+
+while (!pq.empty()) {
+    auto p = pq.top();
+    cout << "(" << p.first << "," << p.second << ") ";
+    pq.pop();
+}
+
+
+    return 0;
+}
