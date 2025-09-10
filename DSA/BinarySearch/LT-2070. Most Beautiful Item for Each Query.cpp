@@ -2,28 +2,41 @@
 //store the max beauty if not then store the lesser number's maximum beauty if not lesser price exist then store 0
 class Solution {
 public:
-    vector<int> maximumBeauty(vector<vector<int>>& items, vector<int>& queries) {
-        sort(items.begin(), items.end());
-        
-        vector<pair<int, int>> max_beauties;
-        int max_beauty = 0;
-        
-        for (const auto& item : items) {
-            int price = item[0];
-            int beauty = item[1];
-            max_beauty = max(max_beauty, beauty);
-            max_beauties.push_back({price, max_beauty});
+    vector<int> maximumBeauty(vector<vector<int>>& items,
+                              vector<int>& queries) {
+        vector<int> ans(queries.size());
+
+        // Sort and store max beauty
+        sort(items.begin(), items.end(),
+             [](vector<int>& a, vector<int>& b) { return a[0] < b[0]; });
+
+        int maxBeauty = items[0][1];
+        for (int i = 0; i < items.size(); i++) {
+            maxBeauty = max(maxBeauty, items[i][1]);
+            items[i][1] = maxBeauty;
         }
-        vector<int> result;
-        for (int query : queries) {
-            auto it = upper_bound(max_beauties.begin(), max_beauties.end(), make_pair(query, INT_MAX)); //here the make_pair helps us to search in 2d pair 
-            if (it == max_beauties.begin()) {   //here it is a pair so the upper bound so no element with the same price will have  INT_max as beauty so it return index+1
-                result.push_back(0);
+
+        for (int i = 0; i < queries.size(); i++) {
+            ans[i] = binarySearch(items, queries[i]);
+        }
+
+        return ans;
+    }
+
+    int binarySearch(vector<vector<int>>& items, int targetPrice) {
+        int left = 0;
+        int right = items.size() - 1;
+        int maxBeauty = 0;
+        while (left <= right) {
+            int mid = (left + right) / 2;
+            if (items[mid][0] > targetPrice) {
+                right = mid - 1;
             } else {
-                result.push_back(prev(it)->second); 
+                // Found viable price. Keep moving to right
+                maxBeauty = max(maxBeauty, items[mid][1]);
+                left = mid + 1;
             }
         }
-        
-        return result;
+        return maxBeauty;
     }
 };
