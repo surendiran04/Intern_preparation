@@ -30,7 +30,7 @@ vector<int> computeLPS(string pat){
             if(len){
                 len=lps[len-1];
             }else{
-                i++;
+                lps[i++]=0; 
             }
         }
     }
