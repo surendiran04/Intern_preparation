@@ -7,35 +7,44 @@
 // Input: s = "abcd"
 // Output: "dcbabcd"
 
-class Solution {
-public:
-    string shortestPalindrome(string s) { //BruteForce --fails bigger TC's
-        int n=s.length();
-        int i=n-1;
-        if(check(s)){
-            return s;
-        }
-        while(i>=0){
-            string sub=s.substr(i,n-i);
-            reverse(sub.begin(),sub.end());
-            sub=sub+s;
-            if(check(sub)){
-                return sub;
-            }
-            i--;
-        } 
-        return s; 
+#include <bits/stdc++.h>
+using namespace std;
+// check if substring s[0..end] is palindrome
+bool isPalindrome(const string &s, int end) {
+    int i = 0, j = end;
+    while (i < j) {
+        if (s[i] != s[j]) return false;
+        i++;
+        j--;
     }
-    bool check(string s){
-        int n=s.length();
-        for(int i=0,j=n-1;i<=j;i++,j--){
-            if(s[i]!=s[j]){
-                return false;
-            }
+    return true;
+}
+
+string shortestPalindrome(string s) {
+    int n = s.size();
+    int longestPalPrefix = 0;
+
+    // find longest palindromic prefix
+    for (int end = n - 1; end >= 0; end--) {
+        if (isPalindrome(s, end)) {
+            longestPalPrefix = end + 1;
+            break;
         }
-        return true;
     }
-};
+
+    // suffix = part after palindromic prefix
+    string suffix = s.substr(longestPalPrefix);
+    reverse(suffix.begin(), suffix.end());
+
+    return suffix + s;
+}
+
+int main() {
+    cout << shortestPalindrome("aacecaaa") << endl; // "aaacecaaa"
+    cout << shortestPalindrome("abcd") << endl;     // "dcbabcd"
+    return 0;
+}
+
 
 class Solution {
 public:
