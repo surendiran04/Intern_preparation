@@ -1,0 +1,42 @@
+Given a BST, modify it so that all greater values in the given BST are added to every node.
+
+Example 1:
+
+Input:
+           50
+         /    \
+        30    70
+      /  \     / \  
+     20  40 60 80
+Output: 350 330 300 260 210 150 80
+Explanation:The tree should be modified to
+following:
+             260
+          /       \
+        330       150
+       /   \     /    \
+    350   300   210    80
+  // modify the BST and return its root
+void sumOfNodes(Node* root,int& sum){
+    if(root){
+        sumOfNodes(root->left,sum);
+        sum+=root->data;
+        sumOfNodes(root->right,sum);
+    }
+}
+void Inorder(Node* root,int& sum){
+    if(root){
+        Inorder(root->left,sum);
+        int temp=root->data;
+        root->data=sum;
+        sum-=temp;
+        Inorder(root->right,sum);
+    }
+}
+Node* modify(Node* root) {
+    // Your code here
+    int sum=0;
+    sumOfNodes(root,sum);
+    Inorder(root,sum);
+    return root;
+}
