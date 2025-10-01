@@ -1,6 +1,6 @@
-class Solution {
+class Solution { 
 public:
-    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) { //O(n) Time and O(n) Space
         if (root == nullptr || root == p || root == q) {
             return root;
         }
@@ -27,8 +27,8 @@ public:
         return false;
     }
 };
-class Solution {
-public:
+class Solution { //O(n) Time and O(h) Space
+public: 
     TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) { //If l and r not nullptr means some node(root) has p,q as its child notes
         if (root == nullptr || root == p || root == q) {
             return root;
