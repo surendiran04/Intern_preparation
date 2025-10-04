@@ -9,10 +9,28 @@
 
 // Input: nums = [1,2,3,4,3]
 // Output: [2,3,4,-1,4]
- 
-class Solution {
+ class Solution {
 public:
     vector<int> nextGreaterElements(vector<int>& nums) {
+        int n=nums.size();
+        stack<int> st;
+        vector<int> nge(n,-1);
+        for(int idx=2*n-1,i;idx>=0;idx--){ //TC-O(4n) SC-O(2n)
+                 i=idx%n;
+            while(!st.empty() && st.top()<=nums[i]){
+                st.pop();
+            }
+            if(i<n){
+                nge[i]=st.empty()?-1:st.top();
+            }
+            st.push(nums[i]);
+        } 
+        return nge;
+    }
+};
+class Solution {
+public:
+    vector<int> nextGreaterElements(vector<int>& nums) { //Index based approach
         int n=nums.size();
         stack<int> st;
         vector<int> res(n,-1);
