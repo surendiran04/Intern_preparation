@@ -50,9 +50,36 @@ public:
     }
 };
 
-/**
- * Your MedianFinder object will be instantiated and called as such:
- * MedianFinder* obj = new MedianFinder();
- * obj->addNum(num);
- * double param_2 = obj->findMedian();
- */
+// Follow up:
+// If all integer numbers from the stream are in the range [0, 100], how would you optimize your solution?
+class MedianFinder {
+public:
+    vector<int> count;
+    int n;
+
+    MedianFinder() : count(101, 0), n(0) {}
+
+    void addNum(int num) {
+        count[num]++;
+        n++;
+    }
+
+    double findMedian() {
+        int mid1 = (n + 1) / 2;
+        int mid2 = (n + 2) / 2;  // handles even-length case
+        int cumsum = 0;
+        int m1 = -1, m2 = -1;
+
+        for (int i = 0; i <= 100; i++) {
+            cumsum += count[i];
+            if (m1 == -1 && cumsum >= mid1) m1 = i;
+            if (m2 == -1 && cumsum >= mid2) m2 = i;
+        }
+        return (m1 + m2) / 2.0;
+    }
+};
+// If 99% of all integer numbers from the stream are in the range [0, 100], how would you optimize your solution?
+
+Use two structures:
+*count[101] for the main range
+*Two count pointers (<0 and >100)
