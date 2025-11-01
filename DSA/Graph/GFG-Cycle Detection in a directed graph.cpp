@@ -1,6 +1,6 @@
 class Solution {
   public:
-    bool isCyclic(int V, vector<vector<int>> &edges) { //TC:O(V+e)
+    bool isCyclic(int V, vector<vector<int>> &edges) { //DFS TC:O(V+E)
         vector<vector<int>> adj(V);
         for(vector<int> e:edges){
             adj[e[0]].push_back(e[1]);
@@ -29,5 +29,38 @@ class Solution {
      }
      pathVis[u]=0;
      return false;
+    }
+};
+class Solution {
+    public: bool isCyclic(int V, vector < vector < int >> & edges) { //BFS TC:O(V+E)
+        vector < vector < int >> adj(V);
+        for (auto e: edges) {
+            adj[e[0]].push_back(e[1]);
+        }
+        vector < int > indegree(V, 0);
+        for (int u = 0; u < V; u++) {
+            for (int v: adj[u]) {
+                indegree[v]++;
+            }
+        }
+        queue < int > q;
+        for (int i = 0; i < V; i++) {
+            if (indegree[i] == 0) {
+                q.push(i);
+            }
+        }
+        vector < int > topo; //just use a count=0;
+        while (!q.empty()) {
+            int node = q.front();
+            q.pop();
+            topo.push_back(node); //cnt++;
+            for (int v: adj[node]) {
+                indegree[v]--;
+                if (indegree[v] == 0) {
+                    q.push(v);
+                }
+            }
+        }
+        return topo.size() != V;
     }
 };
