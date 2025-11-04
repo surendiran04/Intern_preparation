@@ -13,25 +13,42 @@
 // Explanation: There are 7 ways to rob the houses. The way which leads to minimum capability is to rob the house at index 0 and 4. Return max(nums[0], nums[4]) = 2.
 class Solution {
 public:
-    int minCapability(vector<int>& nums, int k) {
-        int mini=1,maxi=*max_element(nums.begin(),nums.end());
-        int n=nums.size();
-        int house;
-        while(mini<maxi){
-            int mid=(maxi+mini)/2;
-            house=0;
-            for(int i=0;i<n;i++){
-                if(nums[i]<=mid){
-                    i++;
-                    house++;
-                }
-            }
-            if(house>=k){
-                maxi=mid;
-            }else{
-                mini=mid+1;
+    bool canRob(vector<int>& nums, int mid, int k) {
+        int count = 0, n = nums.size();
+        for (int i = 0; i < n; i++) {
+            if (nums[i] <= mid) {
+                count++;
+                i++;
             }
         }
-        return mini;
+        return count >= k;
+    }
+
+    int minCapability(vector<int>& nums, int k) {
+        int left = 1, right = *max_element(nums.begin(), nums.end()), ans = right;
+        while (left <= right) {
+            int mid = (left + right) / 2;
+            if (canRob(nums, mid, k)) {
+                ans = mid;
+                right = mid - 1;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return ans;
     }
 };
+class Solution {
+public:
+    int minCapability(vector<int>& nums, int k) {
+        int mincap=INT_MAX;
+        int n=nums.size();
+        for(int i=0;i<n-1;i++){
+            int maxsteal=nums[i];
+            for(int j=i+k;j<n;j+=k){
+                maxsteal=max(maxsteal,nums[j]);
+            }
+            mincap=min(mincap,maxsteal);
+        }
+        return mincap;
+    }
