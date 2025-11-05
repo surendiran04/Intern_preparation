@@ -42,3 +42,24 @@ bool getPath(Node*p,vector<int>&v,int x){
   v.pop_back();
   return false;
 }
+
+class Solution {
+  public:
+    vector<vector<int>> Paths(Node* root) {
+        vector<vector<int>> ans;
+        vector<int> temp;
+        helper(root,ans,temp);
+        return ans;
+    }
+    void helper(Node* p,vector<vector<int>>& ans,vector<int> temp){ //It also works
+        if(!p){
+            return;
+        }
+        temp.push_back(p->data);
+        if(!p->left && !p->right){
+            ans.push_back(temp);
+        }
+        helper(p->left,ans,temp);
+        helper(p->right,ans,temp);
+    }
+};
