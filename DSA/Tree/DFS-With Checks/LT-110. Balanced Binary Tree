@@ -1,0 +1,43 @@
+class Solution {
+public:
+    bool isBalanced(TreeNode* root) {
+        return balanceFactor(root)!=-1;
+    }
+    int balanceFactor(TreeNode* p){
+        if(p==nullptr)
+           return 0;
+        int l=balanceFactor(p->left);
+        if(l==-1) return -1;
+        int r=balanceFactor(p->right);
+        if(r==-1) return -1;
+        if(abs(l-r)>1) return -1;
+        return max(l,r)+1;  
+    }
+};
+class Solution {
+public:
+    bool isBalanced(TreeNode* root) { //TC: O(n^2)
+     if(root==nullptr){
+        return true;
+     }   
+     int lh=height(root->left);
+     int rh=height(root->right);
+     if(abs(rh-lh)>1){
+        return false;
+     }
+     bool l=isBalanced(root->left);
+     bool r=isBalanced(root->right);
+     if(!l || !r){
+        return false;
+     }
+     return true;
+    }
+    int height(TreeNode* root){
+        if(!root){
+            return -1;
+        }
+        int l=height(root->left);
+        int r=height(root->right);
+        return max(r+1,l+1);
+    }
+};
