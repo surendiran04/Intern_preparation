@@ -1,33 +1,40 @@
-public int howMany(int[] input) {
- 
-    int n = input.length;
-    int maxi[] = new int[n];
-    int min[] = new int[n];
+#include<bits/stdc++.h>
+using namespace std;
+
+int howMany(vector<int> input) {
+    int n=input.size();
+    int ma[n];
+    int mi[n];
     
-    int max = Integer.MIN_VALUE;
-    int mi = Integer.MAX_VALUE;
+    int maxi = INT_MIN;
+    int mini = INT_MAX;
     
     for (int i = 0 ; i < n; i++){
-        maxi[i] = Math.max(max, input[i]);
-        max = maxi[i];
+        ma[i] = max(maxi, input[i]);
+        maxi = ma[i];
     }
     for (int i = n-1 ; i >= 0; i--){
-        min[i] = Math.min(mi, input[i]);
-        mi = min[i];
+        mi[i] = min(mini, input[i]);
+        mini = mi[i];
     }
     int count = 0;
     for( int i = 0; i< n ; i++){
-        if(maxi[i] == min[i]) count++;
+        if(ma[i] == mi[i]) count++;
     }
     return count;
     
 }
+int main() {
+    vector<int> input={1, 3, 2};//ans:1 
+    cout<<howMany(input)<<endl;
+    input={2, 1, 3, 5, 4, 6}; //ans:2
+    cout<<howMany(input)<<endl;
+    input={1, 5, 7, 11, 12, 18};//ans:6
+    cout<<howMany(input)<<endl;
+    input={5, 4, 3, 2, 1, 0}; // ans:0
+    cout<<howMany(input)<<endl; 
+    input= {1, 3, 2, 4, 5, 7, 6, 8 //ans:4
+    cout<<howMany(input)<<endl;
+    return 0;
+} 
 
-public static void main(String[] args) {
-    BinarySearchable solution = new BinarySearchable();
-    System.out.println(solution.howMany(new int[] {1, 3, 2}));
-    System.out.println(solution.howMany(new int[] {2, 1, 3, 5, 4, 6}));
-    System.out.println(solution.howMany(new int[] {1, 5, 7, 11, 12, 18}));
-    System.out.println(solution.howMany(new int[] {5, 4, 3, 2, 1, 0}));
-    System.out.println(solution.howMany(new int[] {1, 3, 2, 4, 5, 7, 6, 8}));
-}
