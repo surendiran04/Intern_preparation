@@ -1,26 +1,31 @@
 class Solution {
 public:
-    int countNodes(TreeNode* root) { //slightly lesser than O(n)
-        if (!root) return 0;
-        
-        int leftHeight = getHeight(root->left);
-        int rightHeight = getHeight(root->right);
-        
-        if (leftHeight == rightHeight) {
-            // Left subtree is a perfect binary tree
-            return (1 << leftHeight) + countNodes(root->right);  << - left shifts the 1's bit by leftheight digits if leftDigits = 2 then 2^2=4(0100)
-        } else {
-            // Right subtree is a perfect binary tree one level less
-            return (1 << rightHeight) + countNodes(root->left);
+    int countNodes(TreeNode* root) {
+        if(!root){
+            return 0;
         }
+        int lh=leftheight(root);
+        int rh=rightheight(root);
+        if(lh==rh){
+            return (1<<lh)-1; //2^h-1 is the max no of nodes if the tree is perfect tree
+        }
+        return 1+countNodes(root->left)+countNodes(root->right);
     }
-    int getHeight(TreeNode* node) {
-        int height = 0;
-        while (node) {
-            height++;
-            node = node->left;
+    int leftheight(TreeNode* r){ //here it claculates the no of nodes in log(h) times
+        int cnt=0;
+        while(r){
+            cnt++;
+            r=r->left;
         }
-        return height;
+        return cnt;
+    }
+    int rightheight(TreeNode* r){
+        int cnt=0;
+        while(r){
+            cnt++;
+            r=r->right;
+        }
+        return cnt;
     }
 };
 
