@@ -1,6 +1,6 @@
 class Solution {
 public:
-    vector<int> postorderTraversal(TreeNode* p) {
+    vector<int> postorderTraversal(TreeNode* p) { //TC,SC:O(n)
         stack<pair<TreeNode*,bool>> st;
         vector<int> v;
         pair<TreeNode*,bool> temp;
