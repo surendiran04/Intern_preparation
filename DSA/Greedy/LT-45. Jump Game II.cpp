@@ -17,7 +17,7 @@ public:
 };
 class Solution { //best approach
 public:
-    int jump(vector<int>& nums) {
+    int jump(vector<int>& nums) { //TC:O(n)
         int n=nums.size();
         if(n<2){
             return 0;
@@ -35,3 +35,26 @@ public:
         return jumps;
     }
 };
+ int fun(int idx,int jumps){ //TC:O(n^n) SC:O(n)
+        if(idx>=n-1){
+            return jumps;
+        }
+        mini=INT_MAX;
+        for(int i=1;i<=nums[idx];i++){
+            mini=min(mini,fun(idx+1,jumps+1));
+        }
+        return mini;
+    }
+     int DPfun(int idx,int jumps){ //TC:O(n^2) SC:O(n^2)
+        if(idx>=n-1){
+            return jumps;
+        }
+        if(dp[idx][jumps]!=-1){
+            return jumps;
+        }
+        mini=INT_MAX;
+        for(int i=1;i<=nums[idx];i++){
+            mini=min(mini,DPfun(idx+1,jumps+1));
+        }
+        return dp[idx][jumps]=mini;
+    }
