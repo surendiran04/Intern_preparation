@@ -1,5 +1,23 @@
 // Input: s = "(*))"
 // Output: true
+   //Brute force try out possible case
+    f(s,idx,cnt){
+        if(cnt<0){ //Time :O(3^N) space:O(n)
+            return false;
+        }
+         if(i==n){
+            return cnt==0;  // use a dp[n][n] n->idx,n->cnt time:O(n*n) space:O(n*n)
+        }
+        if(s[idx]=='('){
+            return f(s,idx+1,cnt+1);
+        }
+        else if(s[idx]==')'){
+            return f(s,idx+1,cnt-1);
+        }
+        return f(s,idx+1,cnt-1) || f(s,idx+1,cnt+1) || f(s,idx+1,cnt); //3 cases for *
+    }
+};
+
 class Solution {
 public:
     bool checkValidString(string s) {
