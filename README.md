@@ -1,8 +1,11 @@
 # Intern_preparation
-Data structures <br>
+Data structures <br> 
+<a href="https://leetcode.com/discuss/post/7347258/15-essential-dsa-patterns-for-tech-inter-nxem/">Top 15 patterns must do Problems</a><br> 
+<a href="https://leetcode.com/discuss/post/7347405/the-10-variations-of-two-pointers-by-sai-uvsb/">Two pointer variation</a><br>
 <a href="https://leetcode.com/discuss/career/448024/Topic-wise-problems-for-Beginners">Topic wise problems for Beginners </a><br>
 <a href="https://leetcode.com/discuss/career/448285/List-of-questions-sorted-by-common-patterns">Questions sorted on Common pattern</a><br>
 <a href="https://leetcode.com/discuss/study-guide/1333049/Collections-of-string-questions-pattern-for-upcoming-placement-2021">String must do questions</a><br>
+<a href="https://leetcode.com/discuss/post/7344979/15-core-greedy-patterns-for-coding-inter-a1wp/">Greedy</a><br>
 <a href="https://leetcode.com/problem-list/5iw8y6z7/">DP Top 10</a><br>
 <a href="https://leetcode.com/discuss/post/1747722/how-to-solve-dynamic-programming-problem-9f51/">DP Coding patterns(top-down,bottom up,switching etc...)</a><br>
 <a href="https://leetcode.com/discuss/post/458695/dynamic-programming-patterns-by-aatalyk-pmgr/">DP on each pattern with soln & optimisation Ultimate</a><br>
