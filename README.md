@@ -4,7 +4,7 @@ Data structures <br>
 <a href="https://leetcode.com/discuss/post/7347405/the-10-variations-of-two-pointers-by-sai-uvsb/">Two pointer variation</a><br>
 <a href="https://leetcode.com/discuss/career/448024/Topic-wise-problems-for-Beginners">Topic wise problems for Beginners </a><br>
 <a href="https://leetcode.com/discuss/post/448285/list-of-questions-sorted-by-common-patte-936d/">Pattern wise solving of problems</a><br>
-<a href="https://leetcode.com/discuss/career/448285/List-of-questions-sorted-by-common-patterns">Questions sorted on Common pattern</a><br>
+<a href="https://leetcode.com/discuss/post/5886397/dsa-patterns-you-need-to-know-by-anubhav-x7og/">Questions sorted on Common pattern</a><br>
 <a href="https://leetcode.com/discuss/study-guide/1333049/Collections-of-string-questions-pattern-for-upcoming-placement-2021">String must do questions</a><br>
 <a href="https://leetcode.com/discuss/post/7344979/15-core-greedy-patterns-for-coding-inter-a1wp/">Greedy</a><br>
 <a href="https://leetcode.com/problem-list/5iw8y6z7/">DP Top 10</a><br>
