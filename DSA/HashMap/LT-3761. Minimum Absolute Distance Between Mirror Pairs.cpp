@@ -31,7 +31,7 @@ public:
         int n=nums.size();
         vector<int> rev;
         for(int num:nums){
-            rev.push_back(reverse(num));
+            rev.push_back(reverse(num)); //it is not needed
         }
         unordered_map<int,int> map;
         int mirror=INT_MAX;
@@ -39,7 +39,7 @@ public:
             if(map.find(nums[i])!=map.end()){
                 mirror=min(mirror,i-map[nums[i]]);
             }
-            map[rev[i]]=i;
+            map[rev[i]]=i; //we can use the rev here
         }
         return (mirror==INT_MAX)?-1:mirror;
     }
