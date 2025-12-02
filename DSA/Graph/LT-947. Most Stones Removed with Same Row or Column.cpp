@@ -1,5 +1,5 @@
 class DSU{
-    vector<int> parent,size;
+    vector<int> parent,size; //DSU | row - col mapping | map
 public:
     DSU(int n){
         parent.resize(n);
@@ -52,5 +52,38 @@ public:
             }
         }
         return stones.size()-nc;
+    }
+};
+class Solution {
+public:
+    int removeStones(vector<vector<int>>& stones) {  //DFS 
+        int n=stones.size();
+        vector<vector<int>> adj(n);
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                if(i!=j && (stones[i][0]==stones[j][0] || stones[i][1]==stones[j][1])){
+                    adj[i].push_back(j);
+                }
+            }
+        }
+        vector<int> vis(n,0);
+        int ans=0;
+        for(int i=0;i<n;i++){
+            int cnt=0;
+            if(!vis[i]){
+                dfs(adj,vis,cnt,i);   //No of nodes in the cluster - 1 needs to be removed
+                ans+=cnt-1;
+            }
+        }
+        return ans;
+    }
+    void dfs(vector<vector<int>>& adj,vector<int>& vis,int& cnt,int u){
+        vis[u]=1;
+        cnt++;
+        for(int v:adj[u]){
+            if(!vis[v]){
+                dfs(adj,vis,cnt,v);
+            }
+        }
     }
 };
