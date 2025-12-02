@@ -16,6 +16,7 @@ Data structures <br>
 <a href="https://leetcode.com/discuss/general-discussion/969327/graph-algorithms-one-place-dijkstra-bellman-ford-floyd-warshall-prims-kruskals-dsu">Graph Important Algorithms(Exclusive in Java)</a><br>
 <a href="https://leetcode.com/problems/permutations/solutions/18284/Backtrack-Summary:-General-Solution-for-10-Questionsh/">BackTracking(Exclusive in Python Soln)</a><br>
 <a href="https://leetcode.com/discuss/interview-question/1098600/TOPICS-WHICH-YOU-CAN%27T-SKIP-or-INTERVIEW-PREPARATION-or-STUDY-PLAN">Interview preparation guide inclusive of DBMS,OS,CN</a><br>
+<a href="https://leetcode.com/discuss/post/5963463/googlyness-frequently-asked-questions-by-55sh/">Google googlyness qns</a><br>
 Database Management <br>
 Operating System <br>
 web dev projects <br>
