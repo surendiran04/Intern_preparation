@@ -1,6 +1,6 @@
 class Solution {
 public:
-    bool carPooling(vector<vector<int>>& trips, int capacity) {
+    bool carPooling(vector<vector<int>>& trips, int capacity) { //line - sweep algorithm since the input values goes from left -> right or bottom -> top
         vector<pair<int, int>> v;
         
         for(int i = 0; i < trips.size(); i++){
