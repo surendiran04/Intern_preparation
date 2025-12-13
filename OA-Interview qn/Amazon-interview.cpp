@@ -1,4 +1,6 @@
 Link: https://www.geeksforgeeks.org/dsa/shortest-path-by-removing-k-walls/ LT-1293. Shortest Path in a Grid with Obstacles Elimination
+https://leetcode.com/problems/shortest-path-in-a-grid-with-obstacles-elimination/description/
+
 // Given a 2D binary matrix of size N * M, where 0 represents an empty space while 1 represents a wall you cannot walk through. You are also given an integer K.
 // You can walk up, down, left, or right. Given that you can remove up to K walls, 
 // return the minimum number of steps to walk from the top left corner (0, 0) to the bottom right corner (N-1, M-1). 
