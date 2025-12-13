@@ -1,4 +1,4 @@
-# Intern_preparation
+# DSA & CS FUndamentals Resources
 Data structures <br> 
 <a href="https://leetcode.com/discuss/post/7347258/15-essential-dsa-patterns-for-tech-inter-nxem/">Top 15 patterns must do Problems</a><br> 
 <a href="https://leetcode.com/discuss/post/7347405/the-10-variations-of-two-pointers-by-sai-uvsb/">Two pointer variation</a><br>
@@ -18,14 +18,16 @@ Data structures <br>
 <a href="https://leetcode.com/discuss/interview-question/1098600/TOPICS-WHICH-YOU-CAN%27T-SKIP-or-INTERVIEW-PREPARATION-or-STUDY-PLAN">Interview preparation guide inclusive of DBMS,OS,CN</a><br>
 <a href="https://leetcode.com/discuss/post/5963463/googlyness-frequently-asked-questions-by-55sh/">Google googlyness qns</a><br>
 <a href="https://leetcode.com/discuss/post/7388190/modulo-arithmetic-by-ifzif-tpwy/">Modular Arithmetic Concepts</a><br>
-
+<hr>
 Database Management <br>
-Operating System <br>
+Operating System<br>
+<a href="https://youtu.be/B6tJxvYBNrU?si=5JSD7X_CxauKIrC2">OS qns related to Memory management</a><br>
+Computer Networks <br>
+<a href="https://youtu.be/sCYkeo466Qs?si=13dvjLfI5672yCra">IT k Funda Youtube Channel</a><br>
 web dev projects <br>
 
 
-🔁 Sliding Window
-
+🔁 Sliding Window 
 "subarray"
 "contiguous"
 "window of size k"
