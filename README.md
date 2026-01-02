@@ -1,4 +1,4 @@
-# DSA & CS FUndamentals Resources
+# DSA & CS Fundamentals Resources
 Data structures <br> 
 <a href="https://leetcode.com/discuss/post/7347258/15-essential-dsa-patterns-for-tech-inter-nxem/">Top 15 patterns must do Problems</a><br> 
 <a href="https://leetcode.com/discuss/post/7347405/the-10-variations-of-two-pointers-by-sai-uvsb/">Two pointer variation</a><br>
